@@ -14,8 +14,3 @@ The backend part of the app was created with Supabase.
 
 * React
 * Supabase
-
-
-
-
-
