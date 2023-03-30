@@ -1,6 +1,7 @@
 import Fact from "./Fact";
+import {initialFacts} from "../utils/data";
 
-function FactList({initialFacts}) {
+function FactList() {
     const facts = initialFacts;
     return <section>
         <ul className="facts-list">
