@@ -2,6 +2,7 @@ import './style.css';
 import CategoryFilter from "./components/CategoryFilter";
 import NewFactForm from "./components/NewFactForm";
 import FactList from "./components/FactList";
+import Counter from "./components/Counter";
 
 function App() {
     const appTitle = 'Today I Learned';
@@ -19,6 +20,7 @@ function App() {
             </div>
             <button className="btn btn-large btn-open">Share a fact</button>
           </header>
+          <Counter></Counter>
           <NewFactForm />
           <main className='main'>
               <CategoryFilter />
