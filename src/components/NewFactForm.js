@@ -1,14 +1,38 @@
 import {CATEGORIES} from "../utils/data";
 import {useState} from "react";
 
+function isValidHttpUrl(string) {
+    let url;
+    try {
+        url = new URL(string);
+    }catch (_){
+        return false;
+    }
+    return url.protocol === "http:" || url.protocol === "https:";
+}
+
 function NewFactForm() {
     const [text, setText] = useState('');
-    const [source, setSource] = useState('');
+    const [source, setSource] = useState('http:/example.com');
     const [category, setCategory] = useState('');
     const textLength = text.length;
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        if(text && isValidHttpUrl(source) && category && textLength <= 200) {
+            const newFact = {
+                id: Math.round(Math.random() * 1000000),
+                text,
+                source,
+                category,
+                votesInteresting: 0,
+                votesMindblowing: 0,
+                votesFalse: 0,
+                createdIn: new Date().getFullYear(),
+            }
+        }
+
         console.log(text, source, category)
     }
 
