@@ -1,8 +1,7 @@
 import Fact from "./Fact";
-import {initialFacts} from "../utils/data";
 
-function FactList() {
-    const facts = initialFacts;
+function FactList({facts}) {
+
     return <section>
         <ul className="facts-list">
             {facts.map(fact =>

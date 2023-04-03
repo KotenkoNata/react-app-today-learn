@@ -12,7 +12,7 @@ function Fact({fact}) {
                 >(Source)</a
                 >
             </p>
-            <span className="tag" style={{backgroundColor: CATEGORIES.find((item=>item.name === fact.category)).color}}
+            <span className="tag" style={{backgroundColor: CATEGORIES.find((item => item.name === fact.category)).color}}
             >{fact.category}</span
             >
             <div className="vote-buttons">

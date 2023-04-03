@@ -11,7 +11,7 @@ function isValidHttpUrl(string) {
     return url.protocol === "http:" || url.protocol === "https:";
 }
 
-function NewFactForm() {
+function NewFactForm({setFacts, setShowForm}) {
     const [text, setText] = useState('');
     const [source, setSource] = useState('http:/example.com');
     const [category, setCategory] = useState('');
@@ -31,9 +31,12 @@ function NewFactForm() {
                 votesFalse: 0,
                 createdIn: new Date().getFullYear(),
             }
+            setFacts((facts)=>[newFact, ...facts]);
+            setText('');
+            setSource('');
+            setCategory('');
+            setShowForm(false);
         }
-
-        console.log(text, source, category)
     }
 
     return <form className="fact-form" onSubmit={handleSubmit}>
