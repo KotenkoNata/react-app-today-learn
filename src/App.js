@@ -12,14 +12,22 @@ function App() {
     const [showForm, setShowForm] = useState(false);
     const [facts, setFacts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [currentCategory, setCurrentCategory] = useState("all");
 
     useEffect(() => {
 
         async function getFacts(){
             setIsLoading(true);
-            const { data: facts, error } = await supabase
+
+            let query = supabase
                 .from('facts')
-                .select('*')
+                .select('*');
+
+            if(currentCategory!=='All'){
+                query = query.eq("category", currentCategory)
+            }
+
+            const { data: facts, error } = await query
                 .order('voteInteresting', {ascending: false})
                 .limit(1000);
 
@@ -31,7 +39,7 @@ function App() {
 
         getFacts();
 
-    }, [])
+    }, [currentCategory]);
 
 
   return (
@@ -39,7 +47,7 @@ function App() {
           <Header setShowForm = {setShowForm} showForm={showForm}/>
           {showForm ? <NewFactForm setFacts = {setFacts} setShowForm={setShowForm}/> : null}
           <main className='main'>
-              <CategoryFilter />
+              <CategoryFilter setCurrentCategory={setCurrentCategory}/>
               {isLoading ? <Loader /> : <FactList facts={facts}/>}
           </main>
       </>
