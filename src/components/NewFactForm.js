@@ -30,6 +30,8 @@ function NewFactForm({setFacts, setShowForm}) {
                 .select();
             setIsUploading(false);
 
+            if(!error) setFacts((facts)=>[newFact[0], ...facts])
+
             setFacts((facts)=>[newFact[0], ...facts]);
             setText('');
             setSource('');
