@@ -4,6 +4,7 @@ import {useState} from "react";
 
 function Fact({fact, setFacts}) {
 const [isUpdating, setIsUpdating] = useState(false);
+const isDisputed = fact.voteInteresting + fact.voteMindblowing < fact.voteFalse;
     async function handleVote(columnName) {
         setIsUpdating(true);
        const {data: updatedFact, error} = await supabase.from('facts')
@@ -17,17 +18,16 @@ const [isUpdating, setIsUpdating] = useState(false);
     return (
         <li className="fact">
             <p>
+                {isDisputed ? <span className="disputed">🛑 [DISPUTED] </span> : null}
                 {fact.text}
                 <a
                     className="source"
                     href={fact.source}
                     target="_blank"
-                >(Source)</a
-                >
+                >(Source)</a>
             </p>
             <span className="tag" style={{backgroundColor: CATEGORIES.find((item => item.name === fact.category)).color}}
-            >{fact.category}</span
-            >
+            >{fact.category}</span>
             <div className="vote-buttons">
                 <button onClick={()=>handleVote("voteInteresting")} disabled={isUpdating}>👍 {fact.voteInteresting}</button>
                 <button onClick={()=>handleVote("voteMindblowing")}>🤯 {fact.voteMindblowing}</button>
