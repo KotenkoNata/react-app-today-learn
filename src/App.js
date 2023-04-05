@@ -12,7 +12,7 @@ function App() {
     const [showForm, setShowForm] = useState(false);
     const [facts, setFacts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [currentCategory, setCurrentCategory] = useState("all");
+    const [currentCategory, setCurrentCategory] = useState("All");
 
     useEffect(() => {
 
