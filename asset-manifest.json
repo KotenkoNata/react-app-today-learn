@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "//kotenkonata.github.io/react-app-today-learn/static/css/main.3608b15c.css",
-    "main.js": "//kotenkonata.github.io/react-app-today-learn/static/js/main.bcb7c9a1.js",
+    "main.js": "//kotenkonata.github.io/react-app-today-learn/static/js/main.72b2e1de.js",
     "index.html": "//kotenkonata.github.io/react-app-today-learn/index.html",
     "main.3608b15c.css.map": "//kotenkonata.github.io/react-app-today-learn/static/css/main.3608b15c.css.map",
-    "main.bcb7c9a1.js.map": "//kotenkonata.github.io/react-app-today-learn/static/js/main.bcb7c9a1.js.map"
+    "main.72b2e1de.js.map": "//kotenkonata.github.io/react-app-today-learn/static/js/main.72b2e1de.js.map"
   },
   "entrypoints": [
     "static/css/main.3608b15c.css",
-    "static/js/main.bcb7c9a1.js"
+    "static/js/main.72b2e1de.js"
   ]
 }
